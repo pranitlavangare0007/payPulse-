@@ -61,7 +61,7 @@ export function SelectAccount() {
 
         <p>
           Account: •••• {acc.accountNumber.slice(-4)}
-          {console.log(acc.accountNumber)}
+         
         </p>
 
         <p className="balance">

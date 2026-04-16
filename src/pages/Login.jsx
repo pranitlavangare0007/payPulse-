@@ -17,8 +17,12 @@ export function Login() {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.username);
       sessionStorage.removeItem("selectedAccount");
-
-      navigate("/select-account");
+      if(res.data.role == "ADMIN"){
+        navigate("/admin-panel");
+      }else{
+        navigate("/select-account");
+      }
+      
     } catch {
       console.log("Invalid username or password");
     }

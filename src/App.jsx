@@ -7,10 +7,10 @@ import { Dashboard } from "./pages/Dashboard";
 import { SelectAccount } from "./pages/SelectAccount";
 import { OpenAccount } from "./pages/OpenAccount";
 import { PageNotFound } from "./pages/PageNotFound";
-import{Layout} from './components/Layout'
+import { Layout } from './components/Layout'
 import { TransactionSuccess } from "./pages/TransactionSuccess";
 import { Deposit } from "./pages/Deposit";
-import{Withdraw} from './pages/Withdraw'
+import { Withdraw } from './pages/Withdraw'
 import { ImpsTransfer } from "./pages/ImpsTransfer";
 import { UpiTransfer } from "./pages/UpiTransfer";
 import { Statement } from "./pages/Statement";
@@ -18,6 +18,7 @@ import { AccountProtectedRoute } from "./components/AccountProtectedRoute";
 import { Profile } from "./pages/profile";
 import { Transactions } from "./pages/Transactions";
 import { Email } from "./pages/Email";
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
 
@@ -28,14 +29,15 @@ function App() {
 
       <Routes>
 
-        
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-         <Route path="/" element={<Welcome />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/admin-panel" element={<AdminPanel />} />
 
-        
+
         <Route element={<Layout />}>
-        <Route path="/email" element={<Email />} />
+          <Route path="/email" element={<Email />} />
           <Route path="/profile" element={<AccountProtectedRoute><Profile /></AccountProtectedRoute>} />
           <Route path="/dashboard" element={<AccountProtectedRoute><Dashboard /></AccountProtectedRoute>} />
           <Route path="/select-account" element={<SelectAccount />} />
@@ -49,14 +51,14 @@ function App() {
           <Route path="/transaction-success" element={<AccountProtectedRoute><TransactionSuccess /></AccountProtectedRoute>} />
         </Route>
 
-       
+
         <Route path="*" element={<PageNotFound />} />
 
       </Routes>
 
     </BrowserRouter>
 
-  
+
   )
 }
 
